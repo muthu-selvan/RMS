@@ -1,0 +1,26 @@
+<div class="container-full" [ngStyle]="{background: 'url(assets/img/banner/banner2.png)', 'background-repeat': 'repeat'}">
+  <br>
+  <div class="row">
+    <div class="col-md-4 col-md-4 col-md-4 col-md-4" *ngFor="let rest of restuarants;let i=index">
+      <p-card  header="{{rest.restName}}" [style]="{width: '360px'}" styleClass="ui-card-shadow">
+        <div *ngIf="showAlert && selectedRestId == rest.restId" class="alert alert-danger" role="alert">
+          {{alertMsg}}
+        </div>
+        <p-header>
+            <img src='assets/img/burger/{{++i}}.png'>
+        </p-header>
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+            quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+        </div>
+        <p-footer>
+          <button *ngIf="i == 0" pButton type="button" label="New Restuarant" icon="pi pi-check" style="margin-right: .25em" (click)="add()"></button>
+          <button pButton type="button" label="Delete" icon="pi pi-times" class="ui-button-danger" (click)="delete(rest.restId)"></button>
+        </p-footer>
+      </p-card>
+      <br>
+    </div>
+    <br>
+  </div>
+</div>
+
+

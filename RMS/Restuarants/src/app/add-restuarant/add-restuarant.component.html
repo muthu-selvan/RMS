@@ -1,0 +1,45 @@
+<br>
+<div class="container">
+
+    <div class="card">
+      <div class="card-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <p><strong><h3>Restuarant</h3></strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+          <div class="ui-fluid">
+            <div *ngIf="showAlert" class="alert alert-danger" role="alert">
+              {{alertMsg}}
+            </div>
+            <!-- Restuarant Id -->
+            <div class="p-field p-grid">
+              <label for="restId" class="p-col-2 p-md-2">Restuarant Id</label>
+              <div class="p-col-6 p-md-6">
+                  <input id="restId" type="text" [(ngModel)]="restId" pInputText>
+              </div>
+            </div>
+            <!-- Restuarant -->
+            <div class="p-field p-grid">
+                <label for="restName" class="p-col-2 p-md-2">Resturant Name</label>
+                <div class="p-col-6 p-md-6">
+                  <input id="restName" type="text" [(ngModel)]="selectedResturant" pInputText>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-10"></div>
+              <div class="col-lg-1">
+                <button type="button" style="float: right;" class="btn btn-danger" (click)="cancel()">Cancel</button>
+              </div>
+              <div class="col-lg-1">
+                <button type="button" style="float: right;" class="btn btn-success" (click)="save()">Save</button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>

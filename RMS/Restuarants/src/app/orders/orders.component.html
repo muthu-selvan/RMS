@@ -1,0 +1,65 @@
+<br>
+<div class="container">
+    <div class="card">
+      <div class="card-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9">
+              <p><strong><h3>Manage Orders</h3></strong></p>
+            </div>
+            <div class="col-lg-1">
+              <button type="button" style="float: left;" class="btn btn-primary" (click)="addOrder()">Add</button>
+            </div>
+            <div class="col-lg-1">
+              <button *ngIf="selectedOrder" type="button" style="float: left;" class="btn btn-success" (click)="editOrder()">Edit</button>
+            </div>
+            <div class="col-lg-1">
+              <button *ngIf="selectedOrder" type="button" style="float: right;" class="btn btn-danger"
+              (click)="deleteOrder()">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <!-- Table -->
+        <div class="container">
+          <div *ngIf="showAlert" class="alert alert-danger" role="alert">
+            {{alertMsg}}
+          </div>
+          <p-table #dt1 [columns]="orderCols" [value]="orders" [paginator]="true" [rows]="10"
+          [rowsPerPageOptions]="[5,10,20]" dataKey="billNo" [resizableColumns]="true"
+          [reorderableColumns]="true" selectionMode="single" [(selection)]="selectedOrder"
+          stateStorage="local" stateKey="statedemo-local-order">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn
+                    pReorderableColumn>
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                </tr>
+                <tr>
+                    <th *ngFor="let col of columns" [ngSwitch]="col.field" class="ui-fluid">
+                        <input pInputText type="text"
+                        (input)="dt1.filter($event.target.value, col.field, col.filterMatchMode)"
+                        [value]="dt1.filters[col.field]?.value">
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr [pSelectableRow]="rowData">
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+              <div style="text-align: left"  *ngIf="selectedOrder">
+                  Selected Order: {{selectedOrder ? selectedOrder.billNo + ' - Paid Staus : '+ selectedOrder.paidStatus : ''}}
+              </div>
+            </ng-template>
+        </p-table>
+        </div>
+      </div>
+    </div>
+</div>

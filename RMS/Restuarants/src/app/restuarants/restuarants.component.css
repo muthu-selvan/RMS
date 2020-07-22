@@ -1,0 +1,5 @@
+.container-full {
+  max-width: 100%;
+  background-image: url("../../assets/img/banner/banner2.png");
+  background-repeat: repeat;
+}

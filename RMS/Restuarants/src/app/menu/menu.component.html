@@ -1,0 +1,14 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <ul class="navbar-nav">
+            <li *ngIf="isUserLoggedIn()"><a routerLink="/restuarants" class="nav-link">Restuarants</a></li>
+            <li *ngIf="isUserLoggedIn()"><a routerLink="/tables" class="nav-link">Tables</a></li>
+            <li *ngIf="isUserLoggedIn()"><a routerLink="/products" class="nav-link">Products</a></li>
+            <li *ngIf="isUserLoggedIn()"><a routerLink="/orders" class="nav-link">Order</a></li>
+        </ul>
+        <ul class="navbar-nav navbar-collapse justify-content-end">
+            <li *ngIf="!isUserLoggedIn()"><a routerLink="/login" class="nav-link">Login</a></li>
+            <li *ngIf="isUserLoggedIn()"><a routerLink="/logout" class="nav-link">Logout</a></li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,67 @@
+<br>
+<div class="container">
+    <div class="card">
+      <div class="card-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9">
+              <p><strong><h3>Manage Products</h3></strong></p>
+            </div>
+            <div class="col-lg-1">
+              <button type="button" style="float: left;"
+              class="btn btn-primary" (click)="addProduct()">Add</button>
+            </div>
+            <div class="col-lg-1">
+              <button *ngIf="selectedProduct" type="button" style="float: left;"
+              class="btn btn-success" (click)="editProduct()">Edit</button>
+            </div>
+            <div class="col-lg-1">
+              <button *ngIf="selectedProduct" type="button" style="float: right;"
+              class="btn btn-danger" (click)="deleteProduct()">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <!-- Table -->
+        <div class="container">
+          <div *ngIf="showAlert" class="alert alert-danger" role="alert">
+            {{alertMsg}}
+          </div>
+          <p-table #dt1 [columns]="prodCols" [value]="products" [paginator]="true" [rows]="10"
+          [rowsPerPageOptions]="[5,10,20]" dataKey="restId" [resizableColumns]="true"
+          [reorderableColumns]="true" selectionMode="single" [(selection)]="selectedProduct"
+          stateStorage="local" stateKey="statedemo-local-prod">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let prodcol of prodCols" [pSortableColumn]="prodcol.field" pResizableColumn
+                    pReorderableColumn>
+                        {{prodcol.header}}
+                        <p-sortIcon [field]="prodcol.field"></p-sortIcon>
+                    </th>
+                </tr>
+                <tr>
+                    <th *ngFor="let prodcol of prodCols" [ngSwitch]="prodcol.field" class="ui-fluid">
+                        <input pInputText type="text"
+                        (input)="dt1.filter($event.target.value, prodcol.field, prodcol.filterMatchMode)"
+                        [value]="dt1.filters[prodcol.field]?.value">
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr [pSelectableRow]="rowData">
+                    <td *ngFor="let prodcol of prodCols">
+                        {{rowData[prodcol.field]}}
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+              <div style="text-align: left"  *ngIf="selectedProduct">
+                  Selected Product: {{selectedProduct ? selectedProduct.productName: ''}}
+              </div>
+            </ng-template>
+        </p-table>
+        </div>
+      </div>
+    </div>
+</div>

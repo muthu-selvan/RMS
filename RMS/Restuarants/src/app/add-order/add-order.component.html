@@ -1,0 +1,74 @@
+<br>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p><strong><h3>Order</h3></strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+        <div class="ui-fluid">
+          <div *ngIf="showAlert" class="alert alert-danger" role="alert">
+            {{alertMsg}}
+          </div>
+          <div class="p-field p-grid">
+            <label for="restId" class="p-col-2 p-md-2">Restuarant Id</label>
+            <div class="p-col-2 p-md-2">
+                <p-autoComplete [(ngModel)]="restId" [suggestions]="restIds" (completeMethod)="searchRestId($event)"
+                [forceSelection]="true"></p-autoComplete>
+            </div>
+          </div>
+          <div class="p-field p-grid">
+              <label for="restName" class="p-col-2 p-md-2">Resturant Name</label>
+              <div class="p-col-2">
+                <p-autoComplete [(ngModel)]="selectedResturant" [suggestions]="restuarants" (completeMethod)="search($event)"
+                [forceSelection]="true"></p-autoComplete>
+              </div>
+          </div>
+          <!-- Bill No -->
+          <div class="p-field p-grid">
+          <label for="billNo" class="p-col-2 p-md-2">Bill Number</label>
+          <div class="p-col-6 p-md-6">
+              <input id="billNo" style="width: 214px;" type="text" [(ngModel)]="billNo" pInputText>
+          </div>
+          </div>
+          <!-- Total Products -->
+          <div class="p-field p-grid">
+            <label for="totProd" class="p-col-2 p-md-2">Total Products</label>
+            <div class="p-col-6 p-md-6">
+                <input id="totProd" style="width: 214px;" type="text" [(ngModel)]="totProd" pInputText>
+            </div>
+          </div>
+          <!-- Total Amount -->
+          <div class="p-field p-grid">
+              <label for="totAmount" class="p-col-2 p-md-2">Total Amount</label>
+              <div class="p-col-10 p-md-10">
+                  <input id="totAmount" style="width: 214px;" type="text" [(ngModel)]="totAmount" pInputText>
+              </div>
+          </div>
+          <!-- Is Bill Paid? -->
+          <div class="p-field p-grid">
+            <label for="paidStatus" class="p-col-2 p-md-2">Is Paid?</label>
+            <div class="p-col-2">
+                <!-- <input id="paidStatus" type="text" [(ngModel)]="paidStatus" pInputText> -->
+                <p-autoComplete [(ngModel)]="paidStatus" [suggestions]="paidStatusValues" (completeMethod)="searchPaidStatus($event)"
+                [forceSelection]="true"></p-autoComplete>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-10"></div>
+            <div class="col-lg-1">
+              <button type="button" style="float: right;" class="btn btn-danger" (click)="cancel()">Cancel</button>
+            </div>
+            <div class="col-lg-1">
+              <button type="button" style="float: right;" class="btn btn-success" (click)="save()">Save</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

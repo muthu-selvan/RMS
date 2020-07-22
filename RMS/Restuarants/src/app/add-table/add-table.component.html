@@ -1,0 +1,56 @@
+<br>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-13">
+            <p><strong><h3>Table</h3></strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="ui-fluid">
+        <div *ngIf="showAlert" class="alert alert-danger" role="alert">
+          {{alertMsg}}
+        </div>
+        <div class="p-field p-grid">
+          <label for="restId" class="p-col-2 p-md-2">Restuarant Id</label>
+          <div class="p-col-2">
+              <p-autoComplete  [(ngModel)]="restId" [suggestions]="restIds" (completeMethod)="searchRestId($event)"
+              [forceSelection]="true"></p-autoComplete>
+          </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="restName" class="p-col-2 p-md-2">Resturant Name</label>
+            <div class="p-col-2">
+              <p-autoComplete [(ngModel)]="selectedResturant" [suggestions]="restuarants" (completeMethod)="search($event)"
+              [forceSelection]="true"></p-autoComplete>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="capacity" class="p-col-2 p-md-2">Capacity</label>
+            <div class="p-col-2">
+                <input id="capacity" style="width: 214px;" [(ngModel)]="capacity" type="text" pInputText>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+          <label for="availSeats" class="p-col-2 p-md-2">Available Table</label>
+          <div class="p-col-2">
+              <input id="availSeats" style="width: 214px;" [(ngModel)]="availableTable" type="text" pInputText>
+          </div>
+      </div>
+        <div class="row">
+          <div class="col-lg-10"></div>
+          <div class="col-lg-1">
+            <button type="button" style="float: right;" class="btn btn-danger" (click)="cancel()">Cancel</button>
+          </div>
+          <div class="col-lg-1">
+            <button type="button" style="float: right;" class="btn btn-success" (click)="save()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
