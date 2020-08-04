@@ -39,11 +39,11 @@ export class ProductsComponent implements OnInit {
   }
 
   public addProduct() {
-      this.router.navigate(['addProduct']);
+      this.router.navigate(['add-product']);
   }
 
   public editProduct() {
-    this.router.navigate(['editProduct',
+    this.router.navigate(['edit-product',
      this.selectedProduct.restId,
      this.selectedProduct.restName,
      this.selectedProduct.productName,

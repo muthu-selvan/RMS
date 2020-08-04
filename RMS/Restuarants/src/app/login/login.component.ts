@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
       this.isValidLogin = false;
       return;
     }
-    return;
   }
 
   handleJWTAuthLogin() {

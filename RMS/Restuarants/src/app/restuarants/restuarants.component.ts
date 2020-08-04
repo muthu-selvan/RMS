@@ -29,11 +29,10 @@ export class RestuarantsComponent implements OnInit {
   }
 
   add() {
-    this.router.navigate(['addRestuarant']);
+    this.router.navigate(['add-restuarant']);
   }
 
   public delete(restId: number) {
-    console.log(` Deleting ${restId}`);
     this.restuarantService.deleteRestuarant(restId).subscribe(
       response => {
         this.returnResult = response;

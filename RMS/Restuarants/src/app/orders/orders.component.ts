@@ -42,12 +42,12 @@ export class OrdersComponent implements OnInit {
   }
 
   addOrder() {
-    this.router.navigate(['addOrder']);
+    this.router.navigate(['add-order']);
   }
 
   editOrder() {
     console.log(`this.selectedOrder.paidStatus : ${this.selectedOrder.paidStatus}`);
-    this.router.navigate(['editOrder',
+    this.router.navigate(['edit-order',
     this.selectedOrder.restId,
     this.selectedOrder.restName,
     this.selectedOrder.billNo,

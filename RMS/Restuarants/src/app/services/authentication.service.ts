@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import { AUTH_API_URL } from 'src/app.constants';
 
 export const AUTH_USER = 'authenticatedUser';
 export const TOKEN = 'token';
@@ -24,7 +25,7 @@ export class AuthenticationService {
   executeJWTAuthService(username: string, password: string) {
 
     return this.http.post<any>(
-      'http://localhost:8080/authenticate' ,
+      `${AUTH_API_URL}` ,
         {
           username,
           password

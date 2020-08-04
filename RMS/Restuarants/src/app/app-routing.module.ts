@@ -23,16 +23,16 @@ const routes: Routes = [
   {path: 'restuarants', component: RestuarantsComponent, canActivate: [RouteGuardService]},
   {path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService]},
 
-  {path: 'addTable', component: AddTableComponent, canActivate: [RouteGuardService]},
-  {path: 'editTable/:restId/:restName/:capacity/:availableTable', component: AddTableComponent, canActivate: [RouteGuardService]},
+  {path: 'add-table', component: AddTableComponent, canActivate: [RouteGuardService]},
+  {path: 'edit-table/:restId/:restName/:capacity/:availableTable', component: AddTableComponent, canActivate: [RouteGuardService]},
 
-  {path: 'addProduct', component: AddProductComponent, canActivate: [RouteGuardService]},
-  {path: 'editProduct/:restId/:restName/:product/:price/:description', component: AddProductComponent},
+  {path: 'add-product', component: AddProductComponent, canActivate: [RouteGuardService]},
+  {path: 'edit-product/:restId/:restName/:product/:price/:description', component: AddProductComponent},
 
-  {path: 'addOrder', component: AddOrderComponent, canActivate: [RouteGuardService]},
-  {path: 'editOrder/:restId/:restName/:billNo/:totProd/:totAmount/:paidStatus', component: AddOrderComponent, canActivate: [RouteGuardService]},
+  {path: 'add-order', component: AddOrderComponent, canActivate: [RouteGuardService]},
+  {path: 'edit-order/:restId/:restName/:billNo/:totProd/:totAmount/:paidStatus', component: AddOrderComponent, canActivate: [RouteGuardService]},
 
-  {path: 'addRestuarant', component: AddRestuarantComponent, canActivate: [RouteGuardService]},
+  {path: 'add-restuarant', component: AddRestuarantComponent, canActivate: [RouteGuardService]},
 
   {path: '**', component: ErrorComponent}
 ];

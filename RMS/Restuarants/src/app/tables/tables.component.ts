@@ -38,7 +38,7 @@ export class TablesComponent implements OnInit {
   }
 
   addTable() {
-    this.router.navigate(['addTable']);
+    this.router.navigate(['add-table']);
   }
 
   deleteTable() {
@@ -56,7 +56,7 @@ export class TablesComponent implements OnInit {
   }
 
   editTable() {
-    this.router.navigate(['editTable',
+    this.router.navigate(['edit-table',
     this.selectedTable.restId,
     this.selectedTable.restName,
     this.selectedTable.capacity,
