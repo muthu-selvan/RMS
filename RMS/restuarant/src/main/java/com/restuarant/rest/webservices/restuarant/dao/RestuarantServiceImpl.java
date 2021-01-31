@@ -70,7 +70,7 @@ public class RestuarantServiceImpl implements RestuarantService {
 	@Override
 	public Restuarant getRestuarantById(int restId) {
 		Optional<Restuarant> resturantOptional = repository.findByRestId(restId);
-		if(resturantOptional != null && !resturantOptional.isEmpty()) {
+		if(resturantOptional != null && !resturantOptional.isPresent()) {
 			return resturantOptional.get();
 		}
 		return null;

@@ -86,7 +86,7 @@ public class TableServiceImpl implements TableService {
 	public Table getTableById(int restId) {
 		// TODO Auto-generated method stub
 		final Optional<Table> restuarantOptional = repository.findByRestId(restId);
-		if(restuarantOptional != null && !restuarantOptional.isEmpty()) {
+		if(restuarantOptional != null && !restuarantOptional.isPresent()) {
 			return restuarantOptional.get();
 		}
 		return null;

@@ -76,7 +76,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product getProductById(int restId) {
 		final Optional<Product> productOptional = repository.findByRestId(restId);
-		if(productOptional != null && !productOptional.isEmpty()) {
+		if(productOptional != null && !productOptional.isPresent()) {
 			return productOptional.get();
 		}
 		return null;

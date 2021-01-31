@@ -76,7 +76,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public Order getOrderByBillNoId(int billNo) {
 		final Optional<Order> OrderOptional = repository.findByBillNo(billNo);
-		if(OrderOptional != null && !OrderOptional.isEmpty()) {
+		if(OrderOptional != null && !OrderOptional.isPresent()) {
 			return OrderOptional.get();
 		}
 		return null;
